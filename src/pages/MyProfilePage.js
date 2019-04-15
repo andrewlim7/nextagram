@@ -18,12 +18,11 @@ export default class MyProfilePage extends React.Component {
           })
         .then(response => {
             const {checkAuthorize} = this.props
-            console.log(response)
+            // console.log(response)
             this.setState({isLoading:false})
-            // checkAuthorize(true)
         })
         .catch(error => {
-            console.log(error.response)
+            // console.log(error.response)
             this.setState({isLoading:false})
         })
     }
@@ -31,7 +30,6 @@ export default class MyProfilePage extends React.Component {
 
     render(){
         const {isLoading} = this.state
-        const {isAuthorize} = this.props
         const loaderDOM = <Loader width={200} height={200} />
         console.log(isLoading)
         return (

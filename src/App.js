@@ -46,7 +46,7 @@ class App extends React.Component {
       <FlexibleButton color='#0099ac' textSize={50}>Big and Bright</FlexibleButton> */}
       <Route exact path="/" component={props => <HomePage {...props} users={users} isLoading={isLoading} />}/>
       <Route path="/users/:id" component={props => <UserProfilePage {...props} users={users} />}/>
-      <Route exact path="/profile" component={<MyProfilePage/>}/>
+      <Route exact path="/profile" component={MyProfilePage}/>
       </div>
     )
   }
