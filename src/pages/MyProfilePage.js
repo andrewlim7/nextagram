@@ -31,7 +31,6 @@ export default class MyProfilePage extends React.Component {
     render(){
         const {isLoading} = this.state
         const loaderDOM = <Loader width={200} height={200} />
-        console.log(isLoading)
         return (
             <div>
                 {isLoading ? loaderDOM : localStorage.jwt ? <h1>Welcome! Owner!</h1> : <h1>Welcome! Strangers!</h1>}
