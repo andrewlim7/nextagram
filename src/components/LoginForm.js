@@ -30,7 +30,7 @@ export default class LoginForm extends React.Component {
         const {toggleClose, checkLoginStatus, handleNotification} = this.props
 
         if (email && password) {
-            console.log("Email : " + email + " password : " +password)
+            // console.log("Email : " + email + " password : " +password)
         }
 
         this.setState({checkFormInput:true,isError:false})
@@ -44,14 +44,14 @@ export default class LoginForm extends React.Component {
             }
           })
           .then(response => {
-            console.log(response.data)
-            console.log(response.data.auth_token)
-            console.log(response.data.user)
+            // console.log(response.data)
+            // console.log(response.data.auth_token)
+            // console.log(response.data.user)
             const {auth_token} = response.data
             const {id} = response.data.user
             if(auth_token){
-                localStorage.set('jwt', auth_token)
-                localStorage.set('id', id)
+                localStorage.setItem('jwt', auth_token)
+                localStorage.setItem('id', id)
             }
 
             toggleClose()
@@ -59,8 +59,10 @@ export default class LoginForm extends React.Component {
             handleNotification(true)
           })
           .catch(error => {
-                console.log(error.response)
-              this.setState({checkFormInput:false,isError:true,erroMsg:error.response.data.message})
+                // console.log(error.response)
+                // console.log(error.response.data)
+                const {message} = error.response.data
+                this.setState({checkFormInput:false,isError:true,erroMsg:message})
             //   setTimeout(() => {
                 // this.setState({ isError:false});
             //   }, 3000); //Ask liren, got memory leak when change to other pages.
@@ -81,7 +83,7 @@ export default class LoginForm extends React.Component {
         })
         
         if(email && password){
-            console.log(`Email: ${email}, pw: ${password}`)
+            // console.log(`Email: ${email}, pw: ${password}`)
             this.setState({checkFormInput:false})
         } else {
             this.setState({checkFormInput:true})
